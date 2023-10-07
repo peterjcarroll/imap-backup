@@ -15,7 +15,7 @@ class BackupManager:
         conn = sqlite3.connect(self.db_file)
         c = conn.cursor()
         c.execute('''CREATE TABLE IF NOT EXISTS backed_up_emails
-                     (email_id TEXT PRIMARY KEY, folder TEXT)''')
+                     (email_id TEXT, folder TEXT)''')
         conn.commit()
         conn.close()
     def backup_emails(self):
